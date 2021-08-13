@@ -2,16 +2,16 @@ import type {NextPage} from "next";
 import Head from 'next/head'
 import Link from 'next/link'
 import {
-  SignInAssets,
-  SignInBody, SignInBtn,
-  SignInToMainPage,
-  SignInForm,
-  SignInHeader,
-  SignInInput,
-  SignInLinks,
-  SignInRemember, SignInToRegister,
-  SignInWrapper,
-  SighInLinkRegister,
+  CheckpointAssets,
+  CheckpointBody, CheckpointBtn,
+  CheckpointToMainPage,
+  CheckpointForm,
+  CheckpointHeader,
+  CheckpointInput,
+  CheckpointLinks,
+  CheckpointRemember, CheckpointToRegister,
+  CheckpointWrapper,
+  CheckpointLinkRegister,
 } from "../login/styles";
 import {RegisterLinkToLogin, RegisterSubTitle} from "../register/styles";
 import {LostPasswordText} from "./styles";
@@ -24,32 +24,32 @@ const LostPassword: NextPage = () => {
         <meta name="description" content="Login - Upify Analytics" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SignInWrapper>
-        <SignInBody>
-          <SignInHeader>
+      <CheckpointWrapper>
+        <CheckpointBody>
+          <CheckpointHeader>
             <Link href='/'>
-              <SignInToMainPage>
+              <CheckpointToMainPage>
                 Upify Analytics
-              </SignInToMainPage>
+              </CheckpointToMainPage>
             </Link>
-          </SignInHeader>
-          <SignInForm>
+          </CheckpointHeader>
+          <CheckpointForm>
             <RegisterSubTitle>
               Lost password
             </RegisterSubTitle>
             <LostPasswordText>
               We will send you an email with a magic recovery link to reset your password.
             </LostPasswordText>
-            <SignInInput placeholder='Email Address'/>
-            <SignInBtn type='submit'>Send me recovery link</SignInBtn>
-          </SignInForm>
-          <SignInToRegister>
+            <CheckpointInput placeholder='Email Address'/>
+            <CheckpointBtn type='submit'>Send me recovery link</CheckpointBtn>
+          </CheckpointForm>
+          <CheckpointToRegister>
             <Link href="/login">
               <RegisterLinkToLogin>Return to Login</RegisterLinkToLogin>
             </Link>
-          </SignInToRegister>
-        </SignInBody>
-      </SignInWrapper>
+          </CheckpointToRegister>
+        </CheckpointBody>
+      </CheckpointWrapper>
     </>
   )
 }

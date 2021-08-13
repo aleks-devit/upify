@@ -2,16 +2,16 @@ import type {NextPage} from "next";
 import Head from 'next/head'
 import Link from 'next/link'
 import {
-  SignInAssets,
-  SignInBody, SignInBtn,
-  SignInToMainPage,
-  SignInForm,
-  SignInHeader,
-  SignInInput,
-  SignInLinks,
-  SignInRemember, SignInToRegister,
-  SignInWrapper,
-  SighInLinkRegister,
+  CheckpointAssets,
+  CheckpointBody, CheckpointBtn,
+  CheckpointToMainPage,
+  CheckpointForm,
+  CheckpointHeader,
+  CheckpointInput,
+  CheckpointLinks,
+  CheckpointRemember, CheckpointToRegister,
+  CheckpointWrapper,
+  CheckpointLinkRegister,
 } from "../login/styles";
 import {RegisterSubTitle, RegisterLinkToLogin, RegisterAssets, RegisterAssetsLink} from "./styles";
 
@@ -23,24 +23,24 @@ const Register: NextPage = () => {
         <meta name="description" content="Login - Upify Analytics" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SignInWrapper>
-        <SignInBody>
-          <SignInHeader>
+      <CheckpointWrapper>
+        <CheckpointBody>
+          <CheckpointHeader>
             <Link href='/'>
-              <SignInToMainPage>
+              <CheckpointToMainPage>
                 Upify Analytics
-              </SignInToMainPage>
+              </CheckpointToMainPage>
             </Link>
-          </SignInHeader>
-          <SignInForm>
+          </CheckpointHeader>
+          <CheckpointForm>
             <RegisterSubTitle>
               Register
             </RegisterSubTitle>
-            <SignInInput placeholder='Your full name'/>
-            <SignInInput placeholder='Email Address'/>
-            <SignInInput placeholder='Password' type='password'/>
+            <CheckpointInput placeholder='Your full name'/>
+            <CheckpointInput placeholder='Email Address'/>
+            <CheckpointInput placeholder='Password' type='password'/>
             <RegisterAssets>
-              <SignInRemember>
+              <CheckpointRemember>
                 <div className="checkbox">
                   <input className="custom-checkbox" type="checkbox" id="color-5" name="color-5" value="green"/>
                   <label htmlFor="color-5">
@@ -61,17 +61,17 @@ const Register: NextPage = () => {
                     </div>
                   </label>
                 </div>
-              </SignInRemember>
+              </CheckpointRemember>
             </RegisterAssets>
-            <SignInBtn type='submit'>Register</SignInBtn>
-          </SignInForm>
-          <SignInToRegister>
+            <CheckpointBtn type='submit'>Register</CheckpointBtn>
+          </CheckpointForm>
+          <CheckpointToRegister>
             <Link href="/login">
               <RegisterLinkToLogin>Already have an account?</RegisterLinkToLogin>
             </Link>
-          </SignInToRegister>
-        </SignInBody>
-      </SignInWrapper>
+          </CheckpointToRegister>
+        </CheckpointBody>
+      </CheckpointWrapper>
     </>
   )
 }

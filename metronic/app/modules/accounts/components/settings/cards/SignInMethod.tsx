@@ -33,7 +33,7 @@ const passwordFormValidationSchema = Yup.object().shape({
     .oneOf([Yup.ref('newPassword'), null], 'Passwords must match'),
 })
 
-const SignInMethod: React.FC = () => {
+const CheckpointMethod: React.FC = () => {
   const [emailUpdateData, setEmailUpdateData] = useState<IUpdateEmail>(updateEmail)
   const [passwordUpdateData, setPasswordUpdateData] = useState<IUpdatePassword>(updatePassword)
 
@@ -80,28 +80,28 @@ const SignInMethod: React.FC = () => {
         className='card-header border-0 cursor-pointer'
         role='button'
         data-bs-toggle='collapse'
-        data-bs-target='#kt_account_signin_method'
+        data-bs-target='#kt_account_Checkpoint_method'
       >
         <div className='card-title m-0'>
           <h3 className='fw-bolder m-0'>Sign-in Method</h3>
         </div>
       </div>
 
-      <div id='kt_account_signin_method' className='collapse show'>
+      <div id='kt_account_Checkpoint_method' className='collapse show'>
         <div className='card-body border-top p-9'>
           <div className='d-flex flex-wrap align-items-center'>
-            <div id='kt_signin_email' className={' ' + (showEmailForm && 'd-none')}>
+            <div id='kt_Checkpoint_email' className={' ' + (showEmailForm && 'd-none')}>
               <div className='fs-6 fw-bolder mb-1'>Email Address</div>
               <div className='fw-bold text-gray-600'>support@keenthemes.com</div>
             </div>
 
             <div
-              id='kt_signin_email_edit'
+              id='kt_Checkpoint_email_edit'
               className={'flex-row-fluid ' + (!showEmailForm && 'd-none')}
             >
               <form
                 onSubmit={formik1.handleSubmit}
-                id='kt_signin_change_email'
+                id='kt_Checkpoint_change_email'
                 className='form'
                 noValidate
               >
@@ -149,7 +149,7 @@ const SignInMethod: React.FC = () => {
                 </div>
                 <div className='d-flex'>
                   <button
-                    id='kt_signin_submit'
+                    id='kt_Checkpoint_submit'
                     type='submit'
                     className='btn btn-primary  me-2 px-6'
                   >
@@ -162,7 +162,7 @@ const SignInMethod: React.FC = () => {
                     )}
                   </button>
                   <button
-                    id='kt_signin_cancel'
+                    id='kt_Checkpoint_cancel'
                     type='button'
                     onClick={() => {
                       setShowEmailForm(false)
@@ -175,7 +175,7 @@ const SignInMethod: React.FC = () => {
               </form>
             </div>
 
-            <div id='kt_signin_email_button' className={'ms-auto ' + (showEmailForm && 'd-none')}>
+            <div id='kt_Checkpoint_email_button' className={'ms-auto ' + (showEmailForm && 'd-none')}>
               <button
                 onClick={() => {
                   setShowEmailForm(true)
@@ -190,18 +190,18 @@ const SignInMethod: React.FC = () => {
           <div className='separator separator-dashed my-6'></div>
 
           <div className='d-flex flex-wrap align-items-center mb-10'>
-            <div id='kt_signin_password' className={' ' + (showPasswordForm && 'd-none')}>
+            <div id='kt_Checkpoint_password' className={' ' + (showPasswordForm && 'd-none')}>
               <div className='fs-6 fw-bolder mb-1'>Password</div>
               <div className='fw-bold text-gray-600'>************</div>
             </div>
 
             <div
-              id='kt_signin_password_edit'
+              id='kt_Checkpoint_password_edit'
               className={'flex-row-fluid ' + (!showPasswordForm && 'd-none')}
             >
               <form
                 onSubmit={formik2.handleSubmit}
-                id='kt_signin_change_password'
+                id='kt_Checkpoint_change_password'
                 className='form'
                 noValidate
               >
@@ -297,7 +297,7 @@ const SignInMethod: React.FC = () => {
             </div>
 
             <div
-              id='kt_signin_password_button'
+              id='kt_Checkpoint_password_button'
               className={'ms-auto ' + (showPasswordForm && 'd-none')}
             >
               <button
@@ -340,4 +340,4 @@ const SignInMethod: React.FC = () => {
   )
 }
 
-export {SignInMethod}
+export {CheckpointMethod}

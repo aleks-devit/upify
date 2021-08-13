@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SignInWrapper = styled.div`
+export const CheckpointWrapper = styled.div`
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -12,7 +12,7 @@ export const SignInWrapper = styled.div`
   padding: 50px 0;
   `
 
-export const SignInBody = styled.div`
+export const CheckpointBody = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,18 +21,18 @@ export const SignInBody = styled.div`
   padding: .25rem;
   `
 
-export const SignInHeader = styled.h1`
+export const CheckpointHeader = styled.h1`
   margin-bottom: 30px;
   `
 
-export const SignInToMainPage = styled.a`
+export const CheckpointToMainPage = styled.a`
   font-size: 2.5rem;
   font-weight: 500;
   line-height: 1.2;
   text-align: center;
 `
 
-export const SignInForm = styled.form`
+export const CheckpointForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,7 +41,7 @@ export const SignInForm = styled.form`
   padding: 1.25rem;
   `
 
-export const SignInInput = styled.input`
+export const CheckpointInput = styled.input`
   font-size: .9rem;
   transition: border .3s linear;
   height: 40px;
@@ -58,7 +58,7 @@ export const SignInInput = styled.input`
   }
   `
 
-export const SignInAssets = styled.div`
+export const CheckpointAssets = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -76,22 +76,12 @@ export const SignInAssets = styled.div`
   }
   `
 
-export const SignInRemember = styled.div`
+export const CheckpointRemember = styled.div`
   display: flex;
   align-items: center;
   `
 
-
-export const SignInLabel = styled.label`
-  margin-left: 5px;
-`
-
-
-export const SignInLinks = styled.div`
-  
-  `
-
-export const SignInBtn = styled.button`
+export const CheckpointBtn = styled.button`
   display: block;
   width: 100%;
   color: #ffffff;
@@ -115,11 +105,11 @@ export const SignInBtn = styled.button`
   }
   `
 
-export const SignInToRegister = styled.div`
+export const CheckpointToRegister = styled.div`
   color: #2d3748;
   `
 
-export const SighInLinkRegister = styled.a`
+export const CheckpointLinkRegister = styled.a`
   color: #6A67CE;
   transition: color .3s linear;
   font-weight: 500;
@@ -129,3 +119,4 @@ export const SighInLinkRegister = styled.a`
     text-decoration: underline !important;
   }
   `
+

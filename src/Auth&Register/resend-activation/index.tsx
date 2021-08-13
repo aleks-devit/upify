@@ -2,14 +2,14 @@ import type {NextPage} from "next";
 import Head from 'next/head'
 import Link from 'next/link'
 import {
-  SignInBody,
-  SignInBtn,
-  SignInForm,
-  SignInHeader,
-  SignInInput,
-  SignInToMainPage,
-  SignInToRegister,
-  SignInWrapper,
+  CheckpointBody,
+  CheckpointBtn,
+  CheckpointForm,
+  CheckpointHeader,
+  CheckpointInput,
+  CheckpointToMainPage,
+  CheckpointToRegister,
+  CheckpointWrapper,
 } from "../login/styles";
 import {RegisterLinkToLogin, RegisterSubTitle} from "../register/styles";
 import {LostPasswordText} from "../lost-password/styles";
@@ -22,32 +22,32 @@ const LostPassword: NextPage = () => {
         <meta name="description" content="Login - Upify Analytics" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SignInWrapper>
-        <SignInBody>
-          <SignInHeader>
+      <CheckpointWrapper>
+        <CheckpointBody>
+          <CheckpointHeader>
             <Link href='/'>
-              <SignInToMainPage>
+              <CheckpointToMainPage>
                 Upify Analytics
-              </SignInToMainPage>
+              </CheckpointToMainPage>
             </Link>
-          </SignInHeader>
-          <SignInForm>
+          </CheckpointHeader>
+          <CheckpointForm>
             <RegisterSubTitle>
               Resend activation email
             </RegisterSubTitle>
             <LostPasswordText>
               Mails can get lost, but we can send you another activation email for your account.
             </LostPasswordText>
-            <SignInInput placeholder='Email Address'/>
-            <SignInBtn type='submit'>Send me the activation email</SignInBtn>
-          </SignInForm>
-          <SignInToRegister>
+            <CheckpointInput placeholder='Email Address'/>
+            <CheckpointBtn type='submit'>Send me the activation email</CheckpointBtn>
+          </CheckpointForm>
+          <CheckpointToRegister>
             <Link href="/login">
               <RegisterLinkToLogin>Return to Login</RegisterLinkToLogin>
             </Link>
-          </SignInToRegister>
-        </SignInBody>
-      </SignInWrapper>
+          </CheckpointToRegister>
+        </CheckpointBody>
+      </CheckpointWrapper>
     </>
   )
 }
