@@ -1,17 +1,8 @@
-const { ApolloServer, gql } = require('apollo-server');
+const {ApolloServer, gql} = require('apollo-server');
+import jwt from 'jsonwebtoken';
+import { compareSync, hashSync } from 'bcrypt';
 
-// A schema is a collection of type definitions (hence "typeDefs")
-// that together define the "shape" of queries that are executed against
-// your data.
 const typeDefs = gql`
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
-
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Book {
-    title: String
-    author: String
-  }
-  
   type User {
     id: ID
     name: String
@@ -19,25 +10,15 @@ const typeDefs = gql`
     password: String
   }
 
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
-    books: [Book]
     users: [User]
   }
-`;
 
-const books = [
-  {
-    title: 'The Awakening',
-    author: 'Kate Chopin',
-  },
-  {
-    title: 'City of Glass',
-    author: 'Paul Auster',
-  },
-];
+  type Mutation {
+     signup(username: String!, password: String!): AuthToken
+      login(username: String!, password: String!): AuthToken
+  }
+`;
 
 const users = [
   {
@@ -60,20 +41,61 @@ const users = [
   }
 ]
 
-// Resolvers define the technique for fetching the types defined in the
-// schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
   Query: {
-    books: () => books,
     users: () => users
   },
+  Mutation: {
+    signup: (obj, args, context, info) => {
+      args.password = hashSync(args.password, 10);
+      const session = context.driver.session();
+
+      return session
+        .run(
+          `CREATE (u:User) SET u += $args, u.id = randomUUID()
+           RETURN u`,
+          { args }
+        )
+        .then((res) => {
+          session.close();
+          const { id, username } = res.records[0].get('u').properties;
+
+          return {
+            token: jwt.sign({ id, username }, process.env.JWT_SECRET, {
+              expiredIn: '30d'
+            })
+          };
+        });
+    },
+    login: (obj, args, context, info) => {
+      const session = context.driver.session();
+
+      return session
+        .run(
+          `MATCH (u:User {username: $username}))
+        RETURN u LIMIT 1`,
+          {username: args.username}
+        )
+        .then((res) => {
+          session.close();
+
+          const {id, username, password} = res.records[0].get('u').properties;
+          if (!compareSync(args.password, password)) {
+            throw new Error('Authorization Error');
+          }
+
+          return {
+            token: jwt.sign({id, username}, process.env.JWT_SECRET, {
+              expiresIn: '30d'
+            })
+          };
+        });
+    }
+  }
 };
 
-// The ApolloServer constructor requires two parameters: your schema
-// definition and your set of resolvers.
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({typeDefs, resolvers});
 
-// The `listen` method launches a web server.
-server.listen().then(({ url }) => {
+server.listen().then(({url}) => {
   console.log(`🚀  Server ready at ${url}`);
 });

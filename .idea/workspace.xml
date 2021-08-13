@@ -2,38 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1df86015-219f-42d3-a1a3-e12edf9640d3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Alert/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Alert/styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Auth&amp;Register/login/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo-client.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Auth&amp;Register/AuthProvider/AuthProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo_server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo_server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metronic/_metronic/assets/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/metronic/_metronic/assets/sass/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metronic/app/modules/accounts/components/settings/Settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/metronic/app/modules/accounts/components/settings/Settings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metronic/app/modules/accounts/components/settings/cards/SignInMethod.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/metronic/app/modules/accounts/components/settings/cards/SignInMethod.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metronic/app/modules/auth/components/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/metronic/app/modules/auth/components/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metronic/app/routing/Routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/metronic/app/routing/Routes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next-env.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/lost-password/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lost-password/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/register/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/resend-activation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/resend-activation/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Auth&amp;Register/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth&amp;Register/login/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth&amp;Register/login/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth&amp;Register/login/styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth&amp;Register/lost-password/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth&amp;Register/lost-password/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth&amp;Register/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth&amp;Register/register/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth&amp;Register/register/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth&amp;Register/register/styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth&amp;Register/resend-activation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth&amp;Register/resend-activation/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layout/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Layout/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layout/styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/checkbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/checkbox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/layout.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +25,8 @@
         <option value="JavaScript File" />
         <option value="SCSS File" />
         <option value="CSS File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -91,7 +67,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1628835275450</updated>
-      <workItem from="1628835282834" duration="23217000" />
+      <workItem from="1628835282834" duration="29034000" />
     </task>
     <servers />
   </component>
