@@ -1,10 +1,14 @@
 import React from 'react';
 import {NextPage} from "next";
-import SignInContainer from "../../src/Auth&Register/login";
+import { Login } from 'src/Auth&Register/login/login';
 
 const Auth: NextPage = () => {
   return (
-    <SignInContainer/>
+    <div className="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+      <div className="w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
+        <Login/>
+      </div>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import {FC} from 'react'
 import {shallowEqual, useSelector} from 'react-redux'
-import {Link} from 'react-router-dom'
+import Link from 'next/link'
 import {UserModel} from '../../../../app/modules/auth/models/UserModel'
 import {RootState} from '../../../../setup'
 import {Languages} from './Languages'
@@ -34,8 +34,10 @@ const HeaderUserMenu: FC = () => {
       <div className='separator my-2'></div>
 
       <div className='menu-item px-5'>
-        <Link to={'/crafted/pages/profile'} className='menu-link px-5'>
-          My Profile
+        <Link href='/crafted/pages/profile' >
+          <a className='menu-link px-5'>
+            My Profile
+          </a>
         </Link>
       </div>
 
@@ -119,14 +121,19 @@ const HeaderUserMenu: FC = () => {
       <Languages />
 
       <div className='menu-item px-5 my-1'>
-        <Link to='/crafted/account/settings' className='menu-link px-5'>
+        <Link href='/crafted/account/settings' >
+          <a className='menu-link px-5'>
+
+          </a>
           Account Settings
         </Link>
       </div>
 
       <div className='menu-item px-5'>
-        <Link to='/logout' className='menu-link px-5'>
-          Sign Out
+        <Link href='/logout' >
+          <a className='menu-link px-5'>
+            Sign Out
+          </a>
         </Link>
       </div>
     </div>

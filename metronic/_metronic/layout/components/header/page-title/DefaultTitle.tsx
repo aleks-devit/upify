@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import React, {FC} from 'react'
-import {Link} from 'react-router-dom'
+import Link from 'next/link'
 import {useLayout} from '../../../core/LayoutProvider'
 import {usePageData} from '../../../core/PageData'
 
@@ -44,8 +44,10 @@ const DefaultTitle: FC = () => {
                   key={`${item.path}${index}`}
                 >
                   {!item.isSeparator ? (
-                    <Link className='text-muted text-hover-primary' to={item.path}>
-                      {item.title}
+                    <Link  href={item.path ? item.path : "/"}>
+                      <a className='text-muted text-hover-primary'>
+                        {item.title}
+                      </a>
                     </Link>
                   ) : (
                     <span className='bullet bg-gray-200 w-5px h-2px'></span>

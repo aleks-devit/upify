@@ -1,8 +1,8 @@
 import React from 'react'
 import clsx from 'clsx'
-import {useLocation} from 'react-router'
 import {checkIsActive, KTSVG} from '../../../helpers'
 import {useLayout} from '../../core'
+import {useRouter} from "next/router";
 
 type Props = {
   to: string
@@ -20,7 +20,7 @@ const AsideMenuItemWithSub: React.FC<Props> = ({
   fontIcon,
   hasBullet,
 }) => {
-  const {pathname} = useLocation()
+  const {pathname} = useRouter()
   const isActive = checkIsActive(pathname, to)
   const {config} = useLayout()
   const {aside} = config

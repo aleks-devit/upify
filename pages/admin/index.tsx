@@ -1,6 +1,10 @@
 import type {NextPage} from "next";
 import Head from 'next/head'
-import Layout from "../../src/Layout/Layout";
+import dynamic from "next/dynamic";
+const CabinetLayout = dynamic(
+  () => import('../../src/Cabinet/CabinetLayout/CabinetLayout'),
+  {ssr: false}
+)
 
 const Dashboard: NextPage = () => {
   return(
@@ -10,9 +14,11 @@ const Dashboard: NextPage = () => {
         <meta name="description" content="Description of the main indicators" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        Dashboard
-      </Layout>
+
+      <CabinetLayout>
+        Content
+      </CabinetLayout>
+
     </>
   )
 }

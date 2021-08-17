@@ -1,16 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import clsx from 'clsx'
 import React, {useEffect} from 'react'
-import {Link, useLocation} from 'react-router-dom'
+import Link from 'next/link'
 import {MenuComponent} from '../../../assets/ts/components'
 import {KTSVG, toAbsoluteUrl} from '../../../helpers'
 import {useLayout} from '../../core'
 import {Header} from './Header'
 import {DefaultTitle} from './page-title/DefaultTitle'
 import {Topbar} from './Topbar'
+import {useRouter} from "next/router";
 
 export function HeaderWrapper() {
-  const {pathname} = useLocation()
+  const {pathname} = useRouter()
   const {config, classes, attributes} = useLayout()
   const {header, aside} = config
 
@@ -45,8 +46,10 @@ export function HeaderWrapper() {
         {/* begin::Logo */}
         {!aside.display && (
           <div className='d-flex align-items-center flex-grow-1 flex-lg-grow-0'>
-            <Link to='/dashboard' className='d-lg-none'>
-              <img alt='Logo' src={toAbsoluteUrl('/media/logos/logo-3.svg')} className='h-30px' />
+            <Link href='/dashboard' >
+              <a className='d-lg-none'>
+                <img alt='Logo' src={toAbsoluteUrl('/media/logos/logo-3.svg')} className='h-30px' />
+              </a>
             </Link>
           </div>
         )}
@@ -54,8 +57,10 @@ export function HeaderWrapper() {
 
         {aside.display && (
           <div className='d-flex align-items-center flex-grow-1 flex-lg-grow-0'>
-            <Link to='/' className='d-lg-none'>
-              <img alt='Logo' src={toAbsoluteUrl('/media/logos/logo-3.svg')} className='h-30px' />
+            <Link href='/' >
+              <a className='d-lg-none'>
+                <img alt='Logo' src={toAbsoluteUrl('/media/logos/logo-3.svg')} className='h-30px' />
+              </a>
             </Link>
           </div>
         )}
@@ -76,7 +81,8 @@ export function HeaderWrapper() {
           )}
 
           <div className='d-flex align-items-stretch flex-shrink-0'>
-            <Topbar />
+            {/*TODO ТОПБАР*/}
+            {/*<Topbar />*/}
           </div>
         </div>
         {/* end::Wrapper */}

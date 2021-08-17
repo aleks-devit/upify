@@ -2,8 +2,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useEffect, useRef} from 'react'
 import {Modal} from 'react-bootstrap-v5'
-import {Link, useLocation} from 'react-router-dom'
+import Link from "next/link"
 import {KTSVG, toAbsoluteUrl} from '../../helpers'
+import {useRouter} from "next/router";
 
 type Props = {
   show: boolean
@@ -11,7 +12,7 @@ type Props = {
 }
 
 const MenuModal: React.FC<Props> = ({show, handleClose, children}) => {
-  const location = useLocation()
+  const location = useRouter()
   const isFirstRef = useRef(true)
   useEffect(() => {
     if (isFirstRef.current) {
@@ -35,12 +36,14 @@ const MenuModal: React.FC<Props> = ({show, handleClose, children}) => {
         <div className='modal-header d-flex align-items-center justify-content-between border-0'>
           <div className='d-flex align-items-center'>
             {/* begin::Logo */}
-            <Link to='/'>
-              <img
-                alt='logo'
-                className='h-30px'
-                src={toAbsoluteUrl('/media/logos/logo-default.svg')}
-              />
+            <Link href='/'>
+              <a>
+                <img
+                  alt='logo'
+                  className='h-30px'
+                  src={toAbsoluteUrl('/media/logos/logo-default.svg')}
+                />
+              </a>
             </Link>
             {/* end::Logo */}
           </div>

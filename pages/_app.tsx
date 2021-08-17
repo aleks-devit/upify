@@ -2,15 +2,17 @@ import '../styles/style.css'
 import '../styles/layout.css'
 import '../styles/checkbox.css'
 import '../styles/globals.css'
+import '../styles/plugins.css'
 import type {AppProps} from 'next/app'
-import AuthProvider from "../src/Auth&Register/AuthProvider/AuthProvider";
-
+import { useEffect } from 'react'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    typeof document !== undefined ? require('bootstrap') : null
+  }, [])
+
   return (
-    <AuthProvider>
       <Component {...pageProps} />
-    </AuthProvider>
   )
 }
 export default MyApp
