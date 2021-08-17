@@ -54,7 +54,7 @@ export function Login() {
     >
       {/* begin::Heading */}
       <div className='text-center mb-10'>
-        <h1 className='text-dark mb-3'>Sign In to Metronic</h1>
+        <h1 className='text-dark mb-3'>Sign In to App</h1>
         <div className='text-gray-400 fw-bold fs-4'>
           New Here?{' '}
           <Link href='/register' >

@@ -2,7 +2,7 @@ const {ApolloServer, gql} = require('apollo-server');
 import jwt from 'jsonwebtoken';
 import { compareSync, hashSync } from 'bcrypt';
 
-const typeDefs = gql`
+const typeDefs = gql` 
   type User {
     id: ID
     name: String
