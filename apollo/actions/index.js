@@ -1,5 +1,5 @@
 import {useLazyQuery, useMutation, useQuery} from '@apollo/react-hooks';
-import {GET_ADMIN, GET_USER, SIGN_IN, SIGN_IN_ADMIN, SIGN_OUT, SIGN_OUT_ADMIN} from 'apollo/queries'
+import { GET_USER, SIGN_IN, SIGN_IN_ADMIN, SIGN_OUT, GET_ADMIN_USER, GET_MERCHANT_USER} from 'apollo/queries'
 
 // Auth actions start -----------------------
 
@@ -23,16 +23,14 @@ export const useGetUser = () => useQuery(GET_USER)
 export const useSignInAdmin = () => useMutation(SIGN_IN_ADMIN, {
   update(cache, { data: { signInAdmin: signedInAdmin }}) {
     cache.writeQuery({
-      query: GET_ADMIN,
+      query: GET_USER,
       data: { admin: signedInAdmin }
     })
   }
 })
 
-export const useSignOutAdmin = () => useMutation(SIGN_OUT_ADMIN)
-export const useLazyGetAdmin = () => useLazyQuery(GET_ADMIN)
-export const useGetAdmin = () => useQuery(GET_ADMIN)
-
+export const useGetAdminUsers = () => useQuery(GET_ADMIN_USER)
+export const useGetMerchantUsers = () => useQuery(GET_MERCHANT_USER)
 
 // Auth Admin actions end -----------------------
 

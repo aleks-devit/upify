@@ -1,16 +1,21 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import withApollo from 'hoc/withApollo';
-import { useSignOut } from 'apollo/actions';
+import {useGetUser, useSignOut } from 'apollo/actions';
 
 const Logout = ({apollo}) => {
   const [signOut] = useSignOut();
   const router = useRouter();
+  const { data: { currentUser } = {}, loading, error } = useGetUser();
 
   useEffect(() => {
-    signOut().then(() => {
-      apollo.resetStore().then(() => router.push('/login'));
-    })
+    localStorage.setItem('token', '')
+    if(currentUser.is_admin){
+      router.push('/admin/login');
+    }else{
+      router.push('/login');
+    }
+
   }, [])
 
   return (

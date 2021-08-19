@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {NextPage} from "next";
 import Login from 'src/Auth&Register/login/login';
-import { useEffect, useRef } from 'react';
 import withApollo from 'hoc/withApollo';
-import { useSignInAdmin } from 'apollo/actions';
-import { useRouter } from 'next/router';
+import {useSignInAdmin} from 'apollo/actions';
+import {useRouter} from 'next/router';
 import Redirect from 'src/shared/Redirect';
 
 
 const AuthAdmin: NextPage = () => {
   const [ signInAdmin, {data, loading, error}] = useSignInAdmin();
   const router = useRouter();
+
+  if (data){
+    localStorage.setItem('token', data.adminLogin.token)
+  }
 
   return (
     <div className="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
@@ -19,7 +22,7 @@ const AuthAdmin: NextPage = () => {
           loading={loading}
           onSubmit={(signInData) => signInAdmin({variables: signInData})}
         />
-        { data && data.signInAdmin && <Redirect to="/admin"/> }
+        { data && data.adminLogin && <Redirect to="/admin/dashboard"/> }
       </div>
     </div>
   );

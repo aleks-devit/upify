@@ -8,8 +8,6 @@ const Home: FC = () => {
   const [user, setUser] = useState(null);
   const [hasResponse, setHasResponse] = useState(false);
   const [getUser, {data, error}] = useLazyGetUser();
-  //TODO Регулятор авторизации пользователей
-  const [admin, setAdmin] = useState(false)
 
   useEffect(() => {
     getUser();

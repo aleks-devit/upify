@@ -5,6 +5,8 @@ import {Content} from "../../../metronic/_metronic/layout/components/Content";
 import {ActivityDrawer, DrawerMessenger, InviteUsers, Main, UpgradePlan} from "../../../metronic/_metronic/partials";
 import {ScrollTop} from "../../../metronic/_metronic/layout/components/ScrollTop";
 import {FC, useEffect} from "react";
+import withApollo from "../../../hoc/withApollo";
+import withAuth from "../../../hoc/withAuth";
 
 
 function MasterInit() {

@@ -61,15 +61,15 @@ export function AsideMenuMain() {
      return (
        <>
          <AsideMenuItem
-           to='/dashboard'
+           to='/admin/dashboard'
            icon='image/admin/icons/dashboard.svg'
            title="Dashboard"
            fontIcon='bi-app-indicator'
          />
          <AsideMenuItem
-           to='/users'
+           to='/admin/users'
            icon='image/admin/icons/users.svg'
-           title="Dashboard"
+           title="Users"
            fontIcon='bi-app-indicator'
          />
          <AsideMenuItem

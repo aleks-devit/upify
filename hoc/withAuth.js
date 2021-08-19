@@ -2,23 +2,22 @@
 import { useGetUser } from 'apollo/actions';
 import Redirect from 'src/shared/Redirect';
 import SpinningLoader from 'src/shared/Loader';
+import {useRouter} from "next/router";
 
-export default (WrappedComponent, role, options = {ssr: false}) => {
+export default (WrappedComponent, is_admin, options = {ssr: false}) => {
   function WithAuth(props) {
-    const { data: { user } = {}, loading, error } = useGetUser({fetchPolicy: 'network-only'});
+    const {pathname} = useRouter()
+    const { data: { currentUser } = {}, loading, error } = useGetUser({fetchPolicy: 'network-only'});
 
-    if (
-      !loading &&
-      (!user || error) &&
-      typeof window !== 'undefined'
-    ) {
-      return <Redirect to="/login" query={{message: 'NOT_AUTHENTICATED'}} />
-    }
-
-    // TODO: Send a message to login page
-    if (user) {
-      if (role && !role.includes(user.role)) {
-        return <Redirect to="/login" query={{message: 'NOT_AUTHORIZED'}}/>
+    if(pathname.includes('admin')){
+      console.log('admin')
+      if (!is_admin  || typeof currentUser === undefined || is_admin !== currentUser?.is_admin) {
+          return <Redirect to="/admin/login"/>
+        }
+        return <WrappedComponent {...props} />
+    }else{
+      if (!currentUser) {
+        return <Redirect to="/login"/>
       }
       return <WrappedComponent {...props} />
     }

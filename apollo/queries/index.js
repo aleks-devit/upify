@@ -1,6 +1,7 @@
-import { gql } from 'apollo-boost';
+import {gql} from 'apollo-boost';
 
 // AUTH QUERIES START ----------------------------
+
 
 export const SIGN_UP = gql`
   mutation createUser(
@@ -13,23 +14,21 @@ export const SIGN_UP = gql`
       email: $email
       password: $password
     }) {
-    token
+    Token
     }
   }
 `
 
 export const SIGN_IN = gql`
-  mutation SignIn(
-    $email: String!
+  mutation login(
     $password: String!
+    $email: String!
   ) {
-    signIn(input: {
-      email: $email
+    login(
       password: $password
-    }) {
-      _id
-      name
-      role
+      email: $email
+    ) {
+      token
     }
   }
 `
@@ -37,11 +36,9 @@ export const SIGN_IN = gql`
 export const SIGN_OUT = gql`mutation SignOut{ signOut }`
 
 export const GET_USER = gql`
-  query User {
-    user {
-      _id
-      firstname
-      role
+  query currentUser {
+    currentUser {
+is_admin
     }
   }
 `
@@ -49,48 +46,36 @@ export const GET_USER = gql`
 
 // AUTH ADMIN QUERIES START ----------------------------
 
-export const SIGN_UP_ADMIN = gql`
-  mutation SignUpAdmin(
-    $firstname: String!
-    $lastname: String!
-    $email: String!
-    $password: String!
-    $passwordConfirmation: String!
-  ) {
-    signUpAdmin(input: {
-      firstname: $firstname
-      lastname: $lastname
-      email: $email
-      password: $password
-      passwordConfirmation: $passwordConfirmation
-    })
-  }
-`
-
 export const SIGN_IN_ADMIN = gql`
-  mutation SignInAdmin(
+  mutation adminLogin(
     $email: String!
     $password: String!
   ) {
-    signInAdmin(input: {
+    adminLogin(
       email: $email
       password: $password
-    }) {
-      _id
-      firstname
-      role
+    ) {
+      token
     }
   }
 `
 
-export const SIGN_OUT_ADMIN = gql`mutation SignOutAdmin{ signOut }`
+export const GET_ADMIN_USER = gql`
+  query getAdminUsers {
+    getAdminUsers {
+      id
+      email
+      name
+    }
+  }
+`
 
-export const GET_ADMIN = gql`
-  query Admin {
-    admin {
-      _id
-      firstname
-      role
+export const GET_MERCHANT_USER = gql`
+  query getMerchantUsers {
+    getMerchantUsers {
+      id
+      email
+      name
     }
   }
 `

@@ -8,7 +8,7 @@ export function MenuInner() {
 
   return (
     <>
-      <MenuItem title={'Logout'} to='/login' />
+      <MenuItem title={'Logout'} to='/logout' />
     </>
   )
 }

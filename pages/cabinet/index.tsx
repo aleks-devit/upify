@@ -1,6 +1,8 @@
 import type {NextPage} from 'next'
 import Head from 'next/head'
 import dynamic from "next/dynamic";
+import withApollo from "../../hoc/withApollo";
+import withAuth from "../../hoc/withAuth";
 
 const CabinetLayout = dynamic(
   () => import('../../src/Cabinet/CabinetLayout/CabinetLayout'),
@@ -23,4 +25,4 @@ const CabinetPage: NextPage = () => {
   )
 }
 
-export default CabinetPage
+export default withApollo(withAuth(CabinetPage))

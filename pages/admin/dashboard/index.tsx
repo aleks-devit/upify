@@ -1,10 +1,10 @@
 import type {NextPage} from "next";
 import Head from 'next/head'
 import dynamic from "next/dynamic";
-import withApollo from "../../hoc/withApollo";
-import withAuthAdmin from "../../hoc/withAuthAdmin";
+import withApollo from "../../../hoc/withApollo";
+import withAuth from "../../../hoc/withAuth";
 const CabinetLayout = dynamic(
-  () => import('../../src/Cabinet/CabinetLayout/CabinetLayout'),
+  () => import('../../../src/Cabinet/CabinetLayout/CabinetLayout'),
   {ssr: false}
 )
 
@@ -24,5 +24,5 @@ const AdminPanel: NextPage = () => {
     </>
   )
 }
-export default withApollo(withAuthAdmin(AdminPanel, ['admin']));
+export default withApollo(withAuth(AdminPanel, true));
 
