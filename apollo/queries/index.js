@@ -76,6 +76,7 @@ export const GET_MERCHANT_USER = gql`
       id
       email
       name
+      total_logins
     }
   }
 `

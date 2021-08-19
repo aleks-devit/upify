@@ -4,13 +4,13 @@ import Redirect from 'src/shared/Redirect';
 import SpinningLoader from 'src/shared/Loader';
 import {useRouter} from "next/router";
 
-export default (WrappedComponent, is_admin, options = {ssr: false}) => {
+export default (WrappedComponent, is_admin, options = {ssr: true}) => {
   function WithAuth(props) {
     const {pathname} = useRouter()
     const { data: { currentUser } = {}, loading, error } = useGetUser({fetchPolicy: 'network-only'});
 
     if(pathname.includes('admin')){
-      console.log('admin')
+      console.log('status', is_admin, currentUser?.is_admin)
       if (!is_admin  || typeof currentUser === undefined || is_admin !== currentUser?.is_admin) {
           return <Redirect to="/admin/login"/>
         }
