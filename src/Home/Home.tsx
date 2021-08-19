@@ -1,10 +1,31 @@
+import {useLazyGetUser} from 'apollo/actions';
 import Link from 'next/link';
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
+import withApollo from "../../hoc/withApollo";
+import withAuth from 'hoc/withAuth';
 
-const Home:FC = () => {
+const Home: FC = () => {
+  const [user, setUser] = useState(null);
+  const [hasResponse, setHasResponse] = useState(false);
+  const [getUser, {data, error}] = useLazyGetUser();
   //TODO Регулятор авторизации пользователей
-  const [auth, setAuth] = useState(true)
   const [admin, setAdmin] = useState(false)
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  if (data) {
+    if (data.user && !user) {
+      setUser(data.user);
+    }
+    if (!data.user && user) {
+      setUser(null);
+    }
+    if (!hasResponse) {
+      setHasResponse(true);
+    }
+  }
 
   return (
     <>
@@ -13,38 +34,20 @@ const Home:FC = () => {
           <h1 className="fs-1">
             Retter Analytics
           </h1>
-          {
-            auth ? <div className="d-flex flex-row fs-3 ">
 
-                <Link href="/cabinet">
-                  <a className="p-2">
-                    Cabinet
-                  </a>
-                </Link>
-                {
-                  admin && <Link href="/admin"><a className="p-2">Admin</a></Link>
-                }
+          <div className="d-flex flex-row fs-3 ">
+            <Link href="/cabinet">
+              <a className="p-2">
+                Cabinet
+              </a>
+            </Link>
+            <Link href="/logout">
+              <a className="p-2">
+                Logout
+              </a>
+            </Link>
+          </div>
 
-                {/*TODO Сделать logout*/}
-                <Link href="/login">
-                  <a className="p-2">
-                    Logout
-                  </a>
-                </Link>
-              </div>
-              : <div className="d-flex flex-row fs-3 ">
-                <Link href="/login">
-                  <a className="p-2">
-                    Login
-                  </a>
-                </Link>
-                <Link href="/register">
-                  <a className="p-2">
-                    Register
-                  </a>
-                </Link>
-              </div>
-          }
 
         </div>
 
@@ -70,4 +73,4 @@ const Home:FC = () => {
   );
 };
 
-export default Home;
+export default withApollo(withAuth(Home, ['guest', 'instructor']));

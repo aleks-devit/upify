@@ -3,13 +3,13 @@ import {NextPage} from "next";
 import Login from 'src/Auth&Register/login/login';
 import { useEffect, useRef } from 'react';
 import withApollo from 'hoc/withApollo';
-import { useSignIn } from 'apollo/actions';
+import { useSignInAdmin } from 'apollo/actions';
 import { useRouter } from 'next/router';
 import Redirect from 'src/shared/Redirect';
 
 
-const Auth: NextPage = () => {
-  const [ signIn, {data, loading, error}] = useSignIn();
+const AuthAdmin: NextPage = () => {
+  const [ signInAdmin, {data, loading, error}] = useSignInAdmin();
   const router = useRouter();
 
   return (
@@ -17,12 +17,12 @@ const Auth: NextPage = () => {
       <div className="w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
         <Login
           loading={loading}
-          onSubmit={(signInData) => signIn({variables: signInData})}
+          onSubmit={(signInData) => signInAdmin({variables: signInData})}
         />
-        { data && data.signIn && <Redirect to="/"/> }
+        { data && data.signInAdmin && <Redirect to="/admin"/> }
       </div>
     </div>
   );
 };
 
-export default withApollo(Auth);
+export default withApollo(AuthAdmin);

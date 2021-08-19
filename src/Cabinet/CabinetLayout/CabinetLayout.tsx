@@ -2,16 +2,7 @@ import {LayoutProvider, PageDataProvider} from "../../../metronic/_metronic/layo
 import {AsideDefault} from "../../../metronic/_metronic/layout/components/aside/AsideDefault";
 import {HeaderWrapper} from "../../../metronic/_metronic/layout/components/header/HeaderWrapper";
 import {Content} from "../../../metronic/_metronic/layout/components/Content";
-import {Footer} from "../../../metronic/_metronic/layout/components/Footer";
-import {
-  ActivityDrawer,
-  DrawerMessenger,
-  ExploreMain,
-  InviteUsers,
-  Main,
-  UpgradePlan
-} from "../../../metronic/_metronic/partials";
-import {Toolbar} from "../../../metronic/_metronic/layout/components/toolbar/Toolbar";
+import {ActivityDrawer, DrawerMessenger, InviteUsers, Main, UpgradePlan} from "../../../metronic/_metronic/partials";
 import {ScrollTop} from "../../../metronic/_metronic/layout/components/ScrollTop";
 import {FC, useEffect} from "react";
 

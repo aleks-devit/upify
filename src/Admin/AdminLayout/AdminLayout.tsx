@@ -1,19 +1,18 @@
-import { HeaderWrapper } from 'metronic/_metronic/layout/components/header/HeaderWrapper';
-import { Toolbar } from 'metronic_them_2/src/_metronic/layout/components/toolbar/Toolbar';
-import { PageDataProvider, useLayout } from 'metronic_them_2/src/_metronic/layout/core';
+import {HeaderWrapper} from 'metronic/_metronic/layout/components/header/HeaderWrapper';
+import {Toolbar} from 'metronic_them_2/src/_metronic/layout/components/toolbar/Toolbar';
+import {PageDataProvider, useLayout} from 'metronic_them_2/src/_metronic/layout/core';
 import React from 'react';
-import {classes} from "istanbul-lib-coverage";
-import { AsideDefault } from 'metronic_them_2/src/_metronic/layout/components/aside/AsideDefault';
-import { Content } from 'metronic_them_2/src/_metronic/layout/components/Content';
-import { Footer } from 'metronic_them_2/src/_metronic/layout/components/Footer';
-import { ActivityDrawer } from 'metronic_them_2/src/_metronic/partials/layout/activity-drawer/ActivityDrawer';
-import { ExploreMain } from 'metronic_them_2/src/_metronic/partials/layout/explore/ExploreMain';
-import { DrawerMessenger } from 'metronic_them_2/src/_metronic/partials/layout/drawer-messenger/DrawerMessenger';
-import { Main } from 'metronic_them_2/src/_metronic/partials/modals/create-app/Main';
-import { InviteUsers } from 'metronic_them_2/src/_metronic/partials/modals/invite-users/InviteUsers';
-import { UpgradePlan } from 'metronic_them_2/src/_metronic/partials/modals/upgrade-plan/UpgradePlan';
-import { MasterInit } from 'metronic_them_2/src/_metronic/layout/MasterInit';
-import { ScrollTop } from 'metronic_them_2/src/_metronic/layout/components/ScrollTop';
+import {AsideDefault} from 'metronic_them_2/src/_metronic/layout/components/aside/AsideDefault';
+import {Content} from 'metronic_them_2/src/_metronic/layout/components/Content';
+import {Footer} from 'metronic_them_2/src/_metronic/layout/components/Footer';
+import {ActivityDrawer} from 'metronic_them_2/src/_metronic/partials/layout/activity-drawer/ActivityDrawer';
+import {ExploreMain} from 'metronic_them_2/src/_metronic/partials/layout/explore/ExploreMain';
+import {DrawerMessenger} from 'metronic_them_2/src/_metronic/partials/layout/drawer-messenger/DrawerMessenger';
+import {Main} from 'metronic_them_2/src/_metronic/partials/modals/create-app/Main';
+import {InviteUsers} from 'metronic_them_2/src/_metronic/partials/modals/invite-users/InviteUsers';
+import {UpgradePlan} from 'metronic_them_2/src/_metronic/partials/modals/upgrade-plan/UpgradePlan';
+import {MasterInit} from 'metronic_them_2/src/_metronic/layout/MasterInit';
+import {ScrollTop} from 'metronic_them_2/src/_metronic/layout/components/ScrollTop';
 import clsx from 'clsx'
 
 const AdminLayout: React.FC = ({children}) => {

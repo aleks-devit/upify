@@ -1,54 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {useState} from 'react'
-import * as Yup from 'yup'
+import React, {FC, useState} from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
-import {useFormik} from 'formik'
-// import * as auth from '../redux/AuthRedux'
-// import {login} from '../redux/AuthCRUD'
+import { useForm } from 'react-hook-form'
 
-const loginSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Wrong email format')
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Email is required'),
-  password: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Password is required'),
-})
 
-const initialValues = {
-  email: 'admin@demo.com',
-  password: 'demo',
+interface LoginInterface {
+  loading: boolean
+  onSubmit: any
 }
 
-/*
-  Formik+YUP+Typescript:
-  https://jaredpalmer.com/formik/docs/tutorial#getfieldprops
-  https://medium.com/@maurice.de.beijer/yup-validation-and-typescript-and-formik-6c342578a20e
-*/
+const Login: FC<LoginInterface> = ({onSubmit, loading}) => {
+  const { handleSubmit, register } = useForm();
 
-export function Login() {
-  const [loading, setLoading] = useState(false)
-  const formik = useFormik({
-    initialValues,
-    validationSchema: loginSchema,
-    //Тут происходит отправка запроса, здесь надо прикрутить graph ql
-    onSubmit: (values, {setStatus, setSubmitting}) => {
-      setLoading(true)
-      setTimeout(() => {
-        //В функцию передается логин и пароль и происходит отправка данных
-
-      }, 1000)
-    },
-  })
 
   return (
     <form
       className='form w-100'
-      onSubmit={formik.handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
       noValidate
       id='kt_login_signin_form'
     >
@@ -71,23 +40,13 @@ export function Login() {
         <label className='form-label fs-6 fw-bolder text-dark'>Email</label>
         <input
           placeholder='Email'
-          {...formik.getFieldProps('email')}
+          ref={register}
           className={clsx(
-            'form-control form-control-lg form-control-solid',
-            {'is-invalid': formik.touched.email && formik.errors.email},
-            {
-              'is-valid': formik.touched.email && !formik.errors.email,
-            }
-          )}
+            'form-control form-control-lg form-control-solid' )}
           type='email'
           name='email'
           autoComplete='off'
         />
-        {formik.touched.email && formik.errors.email && (
-          <div className='fv-plugins-message-container'>
-            <span role='alert'>{formik.errors.email}</span>
-          </div>
-        )}
       </div>
       {/* end::Form group */}
 
@@ -114,25 +73,12 @@ export function Login() {
         </div>
         <input
           type='password'
+          ref={register}
+          name='password'
           autoComplete='off'
-          {...formik.getFieldProps('password')}
           className={clsx(
-            'form-control form-control-lg form-control-solid',
-            {
-              'is-invalid': formik.touched.password && formik.errors.password,
-            },
-            {
-              'is-valid': formik.touched.password && !formik.errors.password,
-            }
-          )}
+            'form-control form-control-lg form-control-solid' )}
         />
-        {formik.touched.password && formik.errors.password && (
-          <div className='fv-plugins-message-container'>
-            <div className='fv-help-block'>
-              <span role='alert'>{formik.errors.password}</span>
-            </div>
-          </div>
-        )}
       </div>
       {/* end::Form group */}
 
@@ -142,7 +88,6 @@ export function Login() {
           type='submit'
           id='kt_sign_in_submit'
           className='btn btn-lg btn-primary w-100 mb-5'
-          disabled={formik.isSubmitting || !formik.isValid}
         >
           {!loading && <span className='indicator-label'>Continue</span>}
           {loading && (
@@ -158,3 +103,5 @@ export function Login() {
     </form>
   )
 }
+
+export default Login
