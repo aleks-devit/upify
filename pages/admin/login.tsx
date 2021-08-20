@@ -11,9 +11,9 @@ const AuthAdmin: NextPage = () => {
   const [ signInAdmin, {data, loading, error}] = useSignInAdmin();
   const router = useRouter();
 
-  if (data){
-    localStorage.setItem('token', data.adminLogin.token)
-  }
+  // if (data){
+  //   localStorage.setItem('token', data.adminLogin.token)
+  // }
 
   return (
     <div className="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">

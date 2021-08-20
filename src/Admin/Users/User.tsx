@@ -16,10 +16,10 @@ const User: FC<UserInterface> = ({user}) => {
           </div>
           <div className='d-flex justify-content-start flex-column'>
             <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-              {user.name}
+              {user?.name} Hero
             </a>
             <span className='text-muted fw-bold text-muted d-block fs-7'>
-                       {user.email}
+                       {user?.email} amdmin@admkin.com
                       </span>
           </div>
         </div>
@@ -27,26 +27,34 @@ const User: FC<UserInterface> = ({user}) => {
       <td>
         <span className="badge badge-light-success fs-7 fw-bolder">Active</span>
       </td>
-      <td className='text-end'>
-        <div className='d-flex flex-column w-100 me-2'>
-          {user.plan_settings}
+      <td >
+        <div className='d-flex flex-column w-100 me-2' data-bs-toggle="tooltip" data-bs-placement="top" title="Plan expitarion date">
+          {user?.plan_settings}PREMIUM
+          <div>
+            2021-09-09 09:10:32
+          </div>
         </div>
       </td>
       <td>
-        <div className='d-flex justify-content-end flex-shrink-0'>
-          <span>
-            {user.date}
-          </span>
-          <span>
-            {user.last_activity}
-          </span>
-          <span>
-            {user.total_logins}
-          </span>
-
-            <span>
-              {user.country}
-            </span>
+        <div className='d-flex flex-shrink-0'>
+          <div className="me-3" data-bs-toggle="tooltip" data-bs-placement="top" title=" Registration date: 27-06-2021 10:10:10">
+            {user?.date}
+              Registr
+          </div>
+          <div className="me-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Last activity: 27-06-2021 10:10:10">
+            {user?.last_activity}
+              Last
+          </div>
+          <div className="me-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Total logins: 0">
+            {user?.total_logins}
+            <div>
+             Total
+            </div>
+          </div>
+            <div className="me-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Ukraine">
+              {user?.country}
+              Ukr
+            </div>
         </div>
       </td>
       <td>

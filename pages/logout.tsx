@@ -9,12 +9,12 @@ const Logout = ({apollo}) => {
   const { data: { currentUser } = {}, loading, error } = useGetUser();
 
   useEffect(() => {
-    localStorage.setItem('token', '')
-    if(currentUser.is_admin){
-      router.push('/admin/login');
-    }else{
-      router.push('/login');
-    }
+    // localStorage.setItem('token', '')
+    // if(currentUser.is_admin){
+    //   router.push('/admin/login');
+    // }else{
+    //   router.push('/login');
+    // }
 
   }, [])
 

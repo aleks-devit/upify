@@ -3,8 +3,10 @@ import { useGetUser } from 'apollo/actions';
 import Redirect from 'src/shared/Redirect';
 import SpinningLoader from 'src/shared/Loader';
 import {useRouter} from "next/router";
+import {GET_TOKEN, SIGN_IN_ADMIN} from "../apollo/queries";
+import {gql} from "@apollo/client";
 
-export default (WrappedComponent, is_admin, options = {ssr: true}) => {
+const WithAuth = (WrappedComponent, is_admin, options = {ssr: true}) => {
   function WithAuth(props) {
     const {pathname} = useRouter()
     const { data: { currentUser } = {}, loading, error } = useGetUser({fetchPolicy: 'cache-only'});
@@ -36,8 +38,13 @@ export default (WrappedComponent, is_admin, options = {ssr: true}) => {
       return {};
     }
 
-    WithAuth.getStaticProps = async (context) => {
-      console.log(context)
+    WithAuth.getInitialProps = async (context) => {
+      console.log(context.apolloClient.cache.data)
+      // const cache = context.apolloClient.readQuery({
+      //   query: READ_TODO,
+      //
+      // });
+      // console.log('cache', cache)
       const { req, res } = context;
       if (req) {
         const { user } = req;
@@ -51,10 +58,12 @@ export default (WrappedComponent, is_admin, options = {ssr: true}) => {
         }
       }
 
-      const pageProps = WrappedComponent.getStaticProps && await WrappedComponent.getStaticProps(context);
+      const pageProps = WrappedComponent.getInitialProps && await WrappedComponent.getInitialProps(context);
       return {...pageProps};
     }
   }
 
   return WithAuth;
-}
+};
+
+export default WithAuth;

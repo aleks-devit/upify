@@ -14,7 +14,7 @@ export default withApollo(
       fetchOptions: {
         credentials: 'include'
       },
-      uri: 'http://localhost:3001/graphql',
+      uri: 'http://192.168.0.138:3000/graphql',
       cache: new InMemoryCache().restore(initialState || {}),
     });
   },

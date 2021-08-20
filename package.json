@@ -56,6 +56,7 @@
     "mongoose": "^5.13.7",
     "next": "11.1.0",
     "next-with-apollo": "^5.2.1",
+    "node-localstorage": "^2.2.1",
     "node-sass": "^4.14.1",
     "nouislider": "^15.2.0",
     "object-path": "^0.11.5",

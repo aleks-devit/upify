@@ -14,20 +14,23 @@ import {
 } from './LayoutModels'
 
 export interface LayoutContextModel {
-  config: ILayout
+  config: ILayout | null
   classes: ILayoutCSSClasses
   attributes: ILayoutHTMLAttributes
   cssVariables: ILayoutCSSVariables
   setLayout: (config: LayoutSetup) => void
 }
 
-const LayoutContext = createContext<LayoutContextModel>({
-  config: DefaultLayoutConfig,
-  classes: getEmptyCssClasses(),
-  attributes: getEmptyHTMLAttributes(),
-  cssVariables: getEmptyCSSVariables(),
-  setLayout: (config: LayoutSetup) => {},
-})
+
+  const LayoutContext = createContext<LayoutContextModel>({
+    config: DefaultLayoutConfig,
+    classes: getEmptyCssClasses(),
+    attributes: getEmptyHTMLAttributes(),
+    cssVariables: getEmptyCSSVariables(),
+    setLayout: (config: LayoutSetup) => {
+    },
+  })
+
 
 const enableSplashScreen = () => {
   const splashScreen = document.getElementById('splash-screen')
@@ -43,7 +46,7 @@ const disableSplashScreen = () => {
   }
 }
 
-const LayoutProvider: React.FC = ({children}) => {
+ const LayoutProvider: React.FC = ({children}) => {
   const [config, setConfig] = useState(LayoutSetup.config)
   const [classes, setClasses] = useState(LayoutSetup.classes)
   const [attributes, setAttributes] = useState(LayoutSetup.attributes)

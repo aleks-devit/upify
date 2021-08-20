@@ -31,7 +31,7 @@ const UserTable: FC<UserTableInterface> = ({users}) => {
               // data-bs-target='#kt_modal_invite_friends'
             >
               <KTSVG path='media/icons/duotone/Communication/Add-user.svg' className='svg-icon-3' />
-              New Member
+              Create User
             </a>
           </div>
         </div>
@@ -49,7 +49,7 @@ const UserTable: FC<UserTableInterface> = ({users}) => {
                 <th className='min-w-150px'>User</th>
                 <th className='min-w-140px'>Status</th>
                 <th className='min-w-120px'>Plan</th>
-                <th className='min-w-100px text-end'>Details</th>
+                <th className='min-w-100px'>Details</th>
                 <th className='w-25px'>
                   <div className='form-check form-check-sm form-check-custom form-check-solid'>
                   </div>
@@ -60,6 +60,7 @@ const UserTable: FC<UserTableInterface> = ({users}) => {
               {/* begin::Table body */}
               <tbody>
               {users && users.map((user, id) => <User key={id} user={user}/>)}
+              <User  user={null}/>
               </tbody>
               {/* end::Table body */}
             </table>

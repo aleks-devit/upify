@@ -14,7 +14,8 @@ import {DefaultLayoutConfig} from './DefaultLayoutConfig'
 
 const LAYOUT_CONFIG_KEY = process.env.REACT_APP_BASE_LAYOUT_CONFIG_KEY || 'LayoutConfig'
 
-export function getLayout(): ILayout {
+export function getLayout(): ILayout | null {
+if (typeof window !== 'undefined'){
   const ls = localStorage.getItem(LAYOUT_CONFIG_KEY)
   if (ls) {
     try {
@@ -24,6 +25,8 @@ export function getLayout(): ILayout {
     }
   }
   return DefaultLayoutConfig
+}
+return null
 }
 
 function setLayout(config: ILayout): void {
