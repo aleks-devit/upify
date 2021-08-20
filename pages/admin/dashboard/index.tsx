@@ -24,5 +24,5 @@ const AdminPanel: NextPage = () => {
     </>
   )
 }
-export default withApollo(withAuth(AdminPanel, true));
+export default withApollo(AdminPanel);
 

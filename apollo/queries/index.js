@@ -38,7 +38,7 @@ export const SIGN_OUT = gql`mutation SignOut{ signOut }`
 export const GET_USER = gql`
   query currentUser {
     currentUser {
-is_admin
+      is_admin
     }
   }
 `
@@ -77,6 +77,14 @@ export const GET_MERCHANT_USER = gql`
       email
       name
       total_logins
+    }
+  }
+`
+
+export const GET_TOKEN = gql`
+  query Token{
+    token{
+    token
     }
   }
 `

@@ -7,7 +7,7 @@ import {useRouter} from "next/router";
 export default (WrappedComponent, is_admin, options = {ssr: true}) => {
   function WithAuth(props) {
     const {pathname} = useRouter()
-    const { data: { currentUser } = {}, loading, error } = useGetUser({fetchPolicy: 'network-only'});
+    const { data: { currentUser } = {}, loading, error } = useGetUser({fetchPolicy: 'cache-only'});
 
     if(pathname.includes('admin')){
       console.log('status', is_admin, currentUser?.is_admin)
@@ -36,7 +36,8 @@ export default (WrappedComponent, is_admin, options = {ssr: true}) => {
       return {};
     }
 
-    WithAuth.getInitialProps = async (context) => {
+    WithAuth.getStaticProps = async (context) => {
+      console.log(context)
       const { req, res } = context;
       if (req) {
         const { user } = req;
@@ -50,7 +51,7 @@ export default (WrappedComponent, is_admin, options = {ssr: true}) => {
         }
       }
 
-      const pageProps = WrappedComponent.getInitialProps && await WrappedComponent.getInitialProps(context);
+      const pageProps = WrappedComponent.getStaticProps && await WrappedComponent.getStaticProps(context);
       return {...pageProps};
     }
   }

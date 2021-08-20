@@ -19,4 +19,4 @@ const Users:NextPage = () => {
   );
 };
 
-export default withApollo(withAuth(Users, true));
+export default withApollo(Users);

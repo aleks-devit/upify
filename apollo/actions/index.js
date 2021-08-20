@@ -31,6 +31,5 @@ export const useSignInAdmin = () => useMutation(SIGN_IN_ADMIN, {
 
 export const useGetAdminUsers = () => useQuery(GET_ADMIN_USER)
 export const useGetMerchantUsers = () => useQuery(GET_MERCHANT_USER)
-
 // Auth Admin actions end -----------------------
 
