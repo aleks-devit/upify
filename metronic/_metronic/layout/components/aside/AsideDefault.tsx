@@ -34,7 +34,7 @@ const AsideDefault: FC = () => {
               <img
                 alt='Logo'
                 className='h-50px logo'
-                src={'image/icons/r_logo.png'}
+                src={'/image/icons/r_logo.png'}
               />
             </a>
           </Link>
@@ -45,7 +45,7 @@ const AsideDefault: FC = () => {
             <img
               alt='Logo'
               className='h-50px logo'
-              src={'image/icons/r_logo.png'}
+              src={'/image/icons/r_logo.png'}
             />
             </a>
           </Link>
@@ -63,7 +63,7 @@ const AsideDefault: FC = () => {
             data-kt-toggle-name='aside-minimize'
           >
             <KTSVG
-              path='image/icons/toggle-arrow.svg'
+              path='/image/icons/toggle-arrow.svg'
               className={'svg-icon-1 rotate-180'}
             />
           </div>

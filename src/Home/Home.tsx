@@ -2,7 +2,6 @@ import {useLazyGetUser} from 'apollo/actions';
 import Link from 'next/link';
 import React, {FC, useEffect, useState} from 'react';
 import withApollo from "../../hoc/withApollo";
-import withAuth from 'hoc/withAuth';
 
 const Home: FC = () => {
   const [user, setUser] = useState(null);
@@ -34,7 +33,7 @@ const Home: FC = () => {
           </h1>
 
           <div className="d-flex flex-row fs-3 ">
-            <Link href="/cabinet">
+            <Link href="/cabinet/dashboard">
               <a className="p-2">
                 Cabinet
               </a>
@@ -71,4 +70,4 @@ const Home: FC = () => {
   );
 };
 
-export default withApollo(withAuth(Home, ['guest', 'instructor']));
+export default withApollo(Home)

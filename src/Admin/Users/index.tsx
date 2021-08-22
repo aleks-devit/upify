@@ -1,11 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import clsx from "clsx";
 import UserTable from "./UserTable";
-import { useGetAdminUsers, useGetMerchantUsers } from 'apollo/actions';
-import {ApolloClient, gql, InMemoryCache} from "@apollo/client";
+import {useGetAdminUsers, useGetMerchantUsers} from 'apollo/actions';
 
-const UsersWrapper = ({data}) => {
-  const [tab, setTab] = useState('Header')
+const UsersWrapper = () => {
+  const [tab, setTab] = useState('Admins')
+  const [list, setList] = useState()
+  const {data: {getAdminUsers} = {}} = useGetAdminUsers()
+  const {data: {getMerchantUsers} = {}} = useGetMerchantUsers()
 
 
   return (
@@ -16,19 +18,19 @@ const UsersWrapper = ({data}) => {
             className='nav nav-stretch nav-line-tabs fw-bold border-transparent flex-nowrap'
             role='tablist'
           >
-            <li className='nav-item'>
+            <li className='nav-item btn'>
               <a
-                className={clsx(`nav-link`, {active: tab === 'Header'})}
-                onClick={() => setTab('Header')}
+                className={clsx(`nav-link`, {active: tab === 'Admins'})}
+                onClick={() => setTab('Admins')}
                 role='tab'
               >
                 Admins
               </a>
             </li>
-            <li className='nav-item'>
+            <li className='nav-item btn'>
               <a
-                className={clsx(`nav-link`, {active: tab === 'Toolbar'})}
-                onClick={() => setTab('Toolbar')}
+                className={clsx(`nav-link`, {active: tab === 'Merchants'})}
+                onClick={() => setTab('Merchants')}
                 role='tab'
               >
                 Merchants
@@ -43,12 +45,12 @@ const UsersWrapper = ({data}) => {
           {/* begin::Body */}
           <div className='card-body'>
             <div className='tab-content pt-3'>
-              <div className={clsx('tab-pane', {active: tab === 'Header'})}>
-                <UserTable users={data}/>
+              <div className={clsx('tab-pane', {active: tab === 'Admins'})}>
+                <UserTable users={getAdminUsers}/>
               </div>
 
-              <div className={clsx('tab-pane', {active: tab === 'Toolbar'})}>
-                <UserTable users={data}/>
+              <div className={clsx('tab-pane', {active: tab === 'Merchants'})}>
+                <UserTable users={getMerchantUsers}/>
               </div>
 
             </div>
@@ -61,29 +63,5 @@ const UsersWrapper = ({data}) => {
     </div>
   );
 };
-// TODO законсолить получение пользователей эсли работает то с токенами тоже проблем не будет иначе спрашивай
-export const getStaticProps = async () => {
-  const client = new ApolloClient({
-    uri: 'https://localhost:3001/graphql/',
-    cache: new InMemoryCache()
-  });
-  const { data } = await client.query({
-    query: gql`
-    query getAdminUser{
-      User
-    }
-    query getMerchantUsers{
-      User
-    }
-    `
-  })
-  console.log(data)
-  return{
-    props: {
-      data: data
-    }
-  }
-
-}
 
 export default UsersWrapper;

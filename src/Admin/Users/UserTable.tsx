@@ -14,8 +14,8 @@ const UserTable: FC<UserTableInterface> = ({users}) => {
         {/* begin::Header */}
         <div className='card-header border-0 pt-5'>
           <h3 className='card-title align-items-start flex-column'>
-            <span className='card-label fw-bolder fs-3 mb-1'>Members Statistics</span>
-            <span className='text-muted mt-1 fw-bold fs-7'>Over 500 members</span>
+            <span className='card-label fw-bolder fs-3 mb-1'>Users Statistics</span>
+            <span className='text-muted mt-1 fw-bold fs-7'>Over {users.length} person</span>
           </h3>
           <div
             className='card-toolbar'
@@ -60,7 +60,6 @@ const UserTable: FC<UserTableInterface> = ({users}) => {
               {/* begin::Table body */}
               <tbody>
               {users && users.map((user, id) => <User key={id} user={user}/>)}
-              <User  user={null}/>
               </tbody>
               {/* end::Table body */}
             </table>

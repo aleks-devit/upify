@@ -1,9 +1,16 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {FC, useState} from 'react'
-import clsx from 'clsx'
-import Link from 'next/link'
-import { useForm } from 'react-hook-form'
+import React, {FC} from 'react'
+import {useForm} from 'react-hook-form'
+import Action from "./items/Action";
+import Heading from "./items/Heading";
+import clsx from "clsx";
+import ForgotPassword from "./items/ForgotPassword";
+import {email, password} from "../ListErrors";
+import {setStatusInput} from "../../helpers/setStatusInput";
 
+interface IFormInputs {
+  email: string
+  password: string
+}
 
 interface LoginInterface {
   loading: boolean
@@ -11,8 +18,7 @@ interface LoginInterface {
 }
 
 const Login: FC<LoginInterface> = ({onSubmit, loading}) => {
-  const { handleSubmit, register } = useForm();
-
+  const { handleSubmit, register, errors } = useForm<IFormInputs>({ });
 
   return (
     <form
@@ -21,85 +27,41 @@ const Login: FC<LoginInterface> = ({onSubmit, loading}) => {
       noValidate
       id='kt_login_signin_form'
     >
-      {/* begin::Heading */}
-      <div className='text-center mb-10'>
-        <h1 className='text-dark mb-3'>Sign In to App</h1>
-        <div className='text-gray-400 fw-bold fs-4'>
-          New Here?{' '}
-          <Link href='/register' >
-            <a className='link-primary fw-bolder'>
-              Create an Account
-            </a>
-          </Link>
-        </div>
-      </div>
-      {/* begin::Heading */}
-
+      <Heading/>
       {/* begin::Form group */}
       <div className='fv-row mb-10'>
         <label className='form-label fs-6 fw-bolder text-dark'>Email</label>
         <input
+          ref={register({ ...email })}
           placeholder='Email'
-          ref={register}
           className={clsx(
-            'form-control form-control-lg form-control-solid' )}
-          type='email'
+            'form-control form-control-lg form-control-solid', setStatusInput(errors.email))}
+          type='text'
           name='email'
-          autoComplete='off'
+          id='email'
         />
+        {<p className='text-danger mt-2'>{errors?.email?.message }</p>}
       </div>
       {/* end::Form group */}
 
       {/* begin::Form group */}
       <div className='fv-row mb-10'>
-        <div className='d-flex justify-content-between mt-n5'>
-          <div className='d-flex flex-stack mb-2'>
-            {/* begin::Label */}
-            <label className='form-label fw-bolder text-dark fs-6 mb-0'>Password</label>
-            {/* end::Label */}
-            {/* begin::Link */}
-            <Link
-              href='/auth/forgot-password'
-
-            >
-              <a className='link-primary fs-6 fw-bolder'
-                 style={{marginLeft: '5px'}}>
-                Forgot Password ?
-              </a>
-
-            </Link>
-            {/* end::Link */}
-          </div>
-        </div>
+        <ForgotPassword/>
         <input
+          ref={register( {...password })}
           type='password'
-          ref={register}
           name='password'
-          autoComplete='off'
+          placeholder="Password"
+          autoComplete="on"
+          id='password'
+          required
           className={clsx(
-            'form-control form-control-lg form-control-solid' )}
+            'form-control form-control-lg form-control-solid', setStatusInput(errors.password) )}
         />
+        {<p className='text-danger mt-2'>{errors?.password?.message }</p>}
       </div>
       {/* end::Form group */}
-
-      {/* begin::Action */}
-      <div className='text-center'>
-        <button
-          type='submit'
-          id='kt_sign_in_submit'
-          className='btn btn-lg btn-primary w-100 mb-5'
-        >
-          {!loading && <span className='indicator-label'>Continue</span>}
-          {loading && (
-            <span className='indicator-progress' style={{display: 'block'}}>
-              Please wait...
-              <span className='spinner-border spinner-border-sm align-middle ms-2'></span>
-            </span>
-          )}
-        </button>
-
-      </div>
-      {/* end::Action */}
+      <Action loading={loading}/>
     </form>
   )
 }

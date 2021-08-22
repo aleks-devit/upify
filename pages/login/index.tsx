@@ -6,20 +6,22 @@ import withApollo from 'hoc/withApollo';
 import { useSignIn } from 'apollo/actions';
 import { useRouter } from 'next/router';
 import Redirect from 'src/shared/Redirect';
+import {LoginInterfaces} from "../../src/Auth&Register/login/interfaces";
+import errorMessage from "../../src/helpers/errorMessages";
 
 
 const Auth: NextPage = () => {
   const [ signIn, {data, loading, error}] = useSignIn();
-  const router = useRouter();
 
   return (
     <div className="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
       <div className="w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
         <Login
           loading={loading}
-          onSubmit={(signInData) => signIn({variables: signInData})}
+          onSubmit={(signInData: LoginInterfaces) => signIn({variables: signInData})}
         />
-        { data && data.signIn && <Redirect to="/"/> }
+        { data && data.login && <Redirect to="/cabinet/dashboard"/> }
+        { error && <div className="alert alert-danger">{errorMessage(error)}</div>}
       </div>
     </div>
   );

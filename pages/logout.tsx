@@ -1,20 +1,21 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import {useEffect} from 'react';
+import {useRouter} from 'next/router';
 import withApollo from 'hoc/withApollo';
-import {useGetUser, useSignOut } from 'apollo/actions';
+import {useGetUser} from 'apollo/actions';
+import {checkAdmin} from "../src/helpers/checkToken";
 
-const Logout = ({apollo}) => {
-  const [signOut] = useSignOut();
+const Logout = ({}) => {
   const router = useRouter();
   const { data: { currentUser } = {}, loading, error } = useGetUser();
 
   useEffect(() => {
-    // localStorage.setItem('token', '')
-    // if(currentUser.is_admin){
-    //   router.push('/admin/login');
-    // }else{
-    //   router.push('/login');
-    // }
+    const token: string | null = localStorage.getItem('token')
+    localStorage.setItem('token', '')
+    if(checkAdmin(token)){
+      router.push('/admin/login');
+    }else{
+      router.push('/login');
+    }
 
   }, [])
 

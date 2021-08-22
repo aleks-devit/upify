@@ -1,10 +1,6 @@
-interface SubValidationInterface {
-  status: boolean
-  text: string[]
-}
 
-export interface ValidationInterfaces {
-  name: SubValidationInterface
-  email: SubValidationInterface
-  password: SubValidationInterface
+export interface RegisterInterfaces {
+  name: string
+  email: string
+  password: string
 }

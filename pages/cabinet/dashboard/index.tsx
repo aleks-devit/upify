@@ -1,8 +1,14 @@
 import type {NextPage} from 'next'
 import Head from 'next/head'
-import Home from "../src/Home/Home";
+import dynamic from "next/dynamic";
+import withApollo from "../../../hoc/withApollo";
 import {GetServerSideProps} from "next";
-import {checkAdmin} from "../src/helpers/checkToken";
+import {checkAdmin} from "../../../src/helpers/checkToken";
+
+const CabinetLayout = dynamic(
+  () => import('../../../src/Cabinet/CabinetLayout/CabinetLayout'),
+  {ssr: false}
+)
 
 export const getServerSideProps: GetServerSideProps = async ({req}) => {
   if (checkAdmin(req.cookies.token) || !req.cookies.token) {
@@ -18,20 +24,19 @@ export const getServerSideProps: GetServerSideProps = async ({req}) => {
   }
 }
 
-const HomePage: NextPage = (props) => {
+const CabinetPage: NextPage = () => {
   return (
     <div>
       <Head>
         <title>Create Next App</title>
-        <meta name="description" content="Description of the main indicators" />
+        <meta name="description" content="Description of the main indicators"/>
       </Head>
-      <Home/>
+
+      <CabinetLayout>
+       Content
+      </CabinetLayout>
     </div>
   )
 }
 
-
-
-export default HomePage
-
-
+export default withApollo(CabinetPage)

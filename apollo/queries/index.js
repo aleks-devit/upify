@@ -9,12 +9,12 @@ export const SIGN_UP = gql`
     $email: String!
     $password: String!
   ) {
-    createUser(input: {
+    createUser(
       name: $name
       email: $email
       password: $password
-    }) {
-    Token
+    ) {
+    token
     }
   }
 `
@@ -74,11 +74,23 @@ export const GET_MERCHANT_USER = gql`
   query getMerchantUsers {
     getMerchantUsers {
       id
-      email
-      name
-      total_logins
+     email
+     name
+     
     }
   }
+`
+
+const valueForUsers = `
+    id
+    email
+    name
+    active
+    plan_expiration_date
+    date
+    country
+    last_activity
+    total_logins
 `
 
 export const GET_TOKEN = gql`

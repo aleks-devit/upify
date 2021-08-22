@@ -16,7 +16,6 @@ class Admin extends BaseModel {
       throw new Error('Password must be the same as confirmation password!');
     }
     try {
-      console.log(this.Model)
       return await this.Model.create(signUpData);
     } catch(e) {
       if (e.code && e.code === 11000) {

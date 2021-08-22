@@ -9,50 +9,50 @@ export function AsideMenuMain() {
    return (
      <>
        <AsideMenuItem
-         to='/dashboard'
-         icon='image/icons/dashboard.svg'
+         to='/cabinet/dashboard'
+         icon='/image/icons/dashboard.svg'
          title="Dashboard"
          fontIcon='bi-app-indicator'
        />
        <AsideMenuItem
-         to='/goals'
-         icon='image/icons/Goals.svg'
+         to='/cabinet/goals'
+         icon='/image/icons/Goals.svg'
          title="Goals"
          fontIcon='bi-app-indicator'
        />
        <AsideMenuItem
-         to='/realtime'
-         icon='image/icons/Realtime.svg'
+         to='/cabinet/realtime'
+         icon='/image/icons/Realtime.svg'
          title="Realtime"
          fontIcon='bi-app-indicator'
        />
        <AsideMenuItem
-         to='/visitors'
-         icon='image/icons/Visitors.svg'
+         to='/cabinet/visitors'
+         icon='/image/icons/Visitors.svg'
          title="Visitors"
          fontIcon='bi-app-indicator'
        />
        <AsideMenuItem
-         to='/heatmaps'
-         icon='image/icons/Heatmaps.svg'
+         to='/cabinet/heatmaps'
+         icon='/image/icons/Heatmaps.svg'
          title="Heatmaps"
          fontIcon='bi-app-indicator'
        />
        <AsideMenuItem
-         to='/replays'
-         icon='image/icons/Replays.svg'
+         to='/cabinet/replays'
+         icon='/image/icons/Replays.svg'
          title="Replays"
          fontIcon='bi-app-indicator'
        />
        <AsideMenuItem
-         to='/websites'
-         icon='image/icons/Websites.svg'
+         to='/cabinet/websites'
+         icon='/image/icons/Websites.svg'
          title="Websites"
          fontIcon='bi-app-indicator'
        />
        <AsideMenuItem
-         to='/help'
-         icon='image/icons/Help.svg'
+         to='/cabinet/help'
+         icon='/image/icons/Help.svg'
          title="Help"
          fontIcon='bi-app-indicator'
        />
@@ -62,61 +62,61 @@ export function AsideMenuMain() {
        <>
          <AsideMenuItem
            to='/admin/dashboard'
-           icon='image/admin/icons/dashboard.svg'
+           icon='/image/admin/icons/dashboard.svg'
            title="Dashboard"
            fontIcon='bi-app-indicator'
          />
          <AsideMenuItem
            to='/admin/users'
-           icon='image/admin/icons/users.svg'
+           icon='/image/admin/icons/users.svg'
            title="Users"
            fontIcon='bi-app-indicator'
          />
          <AsideMenuItem
            to='/users-logs'
-           icon='image/admin/icons/usersLog.svg'
+           icon='/image/admin/icons/usersLog.svg'
            title="Users logs"
            fontIcon='bi-app-indicator'
          />
          <AsideMenuItem
            to='/websites'
-           icon='image/admin/icons/websites.svg'
+           icon='/image/admin/icons/websites.svg'
            title="Websites"
            fontIcon='bi-app-indicator'
          />
          <AsideMenuItem
            to='/pages'
-           icon='image/admin/icons/pages.svg'
+           icon='/image/admin/icons/pages.svg'
            title="Pages"
            fontIcon='bi-app-indicator'
          />
          <AsideMenuItem
            to='/plans'
-           icon='image/admin/icons/plans.svg'
+           icon='/image/admin/icons/plans.svg'
            title="Plans"
            fontIcon='bi-app-indicator'
          />
          <AsideMenuItem
            to='/statistics'
-           icon='image/admin/icons/statistics.svg'
+           icon='/image/admin/icons/statistics.svg'
            title="Statistics"
            fontIcon='bi-app-indicator'
          />
          <AsideMenuItem
            to='/api-docs'
-           icon='image/admin/icons/apiDocs.svg'
+           icon='/image/admin/icons/apiDocs.svg'
            title="API docs"
            fontIcon='bi-app-indicator'
          />
          <AsideMenuItem
            to='/plugins'
-           icon='image/admin/icons/plugins.svg'
+           icon='/image/admin/icons/plugins.svg'
            title="Plugins"
            fontIcon='bi-app-indicator'
          />
          <AsideMenuItem
            to='/websites-settings'
-           icon='image/admin/icons/websitesSettings.svg'
+           icon='/image/admin/icons/websitesSettings.svg'
            title="Website Settings"
            fontIcon='bi-app-indicator'
          />
@@ -125,14 +125,14 @@ export function AsideMenuMain() {
          </div>
          <AsideMenuItem
            to='/visit-website'
-           icon='image/admin/icons/visitWebsite.svg'
+           icon='/image/admin/icons/visitWebsite.svg'
            title="Visit Website"
            fontIcon='bi-app-indicator'
          />
            {/*TODO Сделать под пользователя*/}
          <AsideMenuItem
            to='/websites-settings'
-           icon='image/admin/avatar.png'
+           icon='/image/admin/avatar.png'
            title="Website Settings"
            fontIcon='bi-app-indicator'
          />

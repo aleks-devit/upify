@@ -39,7 +39,7 @@ export function HeaderWrapper() {
               id='kt_aside_mobile_toggle'
             >
 
-              <KTSVG path='image/icons/burger.svg' className='svg-icon-2x mt-1' />
+              <KTSVG path='/image/icons/burger.svg' className='svg-icon-2x mt-1' />
             </div>
           </div>
         )}
@@ -47,7 +47,7 @@ export function HeaderWrapper() {
         {/* begin::Logo */}
         {!aside.display && (
           <div className='d-flex align-items-center flex-grow-1 flex-lg-grow-0'>
-            <Link href='/dashboard' >
+            <Link href='/cabinet/dashboard' >
               <a className='d-lg-none'>
                 <img alt='Logo' src={toAbsoluteUrl('/media/logos/logo-3.svg')} className='h-30px' />
               </a>
@@ -67,7 +67,7 @@ export function HeaderWrapper() {
         )}
 
         {/* begin::Wrapper */}
-        <div className='d-flex align-items-stretch justify-content-between flex-lg-grow-1'>
+        <div className='d-flex align-items-stretch justify-content-between flex-row-reverse flex-lg-grow-1'>
           {/* begin::Navbar */}
           {header.left === 'menu' && (
             <div className='d-flex align-items-stretch' id='kt_header_nav'>

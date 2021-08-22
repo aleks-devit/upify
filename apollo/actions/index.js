@@ -1,5 +1,5 @@
 import {useLazyQuery, useMutation, useQuery} from '@apollo/react-hooks';
-import { GET_USER, SIGN_IN, SIGN_IN_ADMIN, SIGN_OUT, GET_ADMIN_USER, GET_MERCHANT_USER} from 'apollo/queries'
+import {GET_USER, SIGN_IN, SIGN_IN_ADMIN, SIGN_OUT, GET_ADMIN_USER, GET_MERCHANT_USER, SIGN_UP} from 'apollo/queries'
 
 // Auth actions start -----------------------
 
@@ -11,7 +11,7 @@ export const useSignIn = () => useMutation(SIGN_IN, {
     })
   }
 })
-
+export const useCreateUser = () => useMutation(SIGN_UP)
 export const useSignOut = () => useMutation(SIGN_OUT)
 export const useLazyGetUser = () => useLazyQuery(GET_USER)
 export const useGetUser = () => useQuery(GET_USER)
