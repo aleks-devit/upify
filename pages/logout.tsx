@@ -4,18 +4,31 @@ import withApollo from 'hoc/withApollo';
 import {useGetUser} from 'apollo/actions';
 import {checkAdmin} from "../src/helpers/checkToken";
 
+export async function getServerSideProps(context) {
+  console.log(context.req)
+  return {
+    props: {}, // will be passed to the page component as props
+  }
+}
+
 const Logout = ({}) => {
   const router = useRouter();
   const { data: { currentUser } = {}, loading, error } = useGetUser();
 
   useEffect(() => {
+
     const token: string | null = localStorage.getItem('token')
-    localStorage.setItem('token', '')
-    if(checkAdmin(token)){
-      router.push('/admin/login');
+    if (token.length !== 0){
+      localStorage.setItem('token', '')
+      if(checkAdmin(token)){
+        router.push('/admin/login');
+      }else{
+        router.push('/login');
+      }
     }else{
       router.push('/login');
     }
+
 
   }, [])
 

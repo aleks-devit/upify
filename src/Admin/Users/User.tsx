@@ -7,7 +7,7 @@ interface UserInterface {
 }
 
 const User: FC<UserInterface> = ({user}) => {
-  console.log(user)
+
   return (
     <tr>
       <td>
