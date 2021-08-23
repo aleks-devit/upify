@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import {Link} from 'react-router-dom'
+import Link from 'next/link'
 import {useFormik} from 'formik'
 import {requestPassword} from '../redux/AuthCRUD'
 
@@ -117,15 +117,17 @@ export function ForgotPassword() {
               </span>
             )}
           </button>
-          <Link to='/auth/login'>
-            <button
-              type='button'
-              id='kt_login_password_reset_form_cancel_button'
-              className='btn btn-lg btn-light-primary fw-bolder'
-              disabled={formik.isSubmitting || !formik.isValid}
-            >
-              Cancel
-            </button>
+          <Link href='/auth/login'>
+            <a>
+              <button
+                type='button'
+                id='kt_login_password_reset_form_cancel_button'
+                className='btn btn-lg btn-light-primary fw-bolder'
+                disabled={formik.isSubmitting || !formik.isValid}
+              >
+                Cancel
+              </button>
+            </a>
           </Link>{' '}
         </div>
         {/* end::Form group */}

@@ -45607,8 +45607,8 @@ code:not([class*=language-]) {
   transition: fill 0.3s ease;
 }
 .svg-icon.svg-icon-1 svg {
-  height: 1.75rem !important;
-  width: 1.75rem !important;
+  height: 2rem !important;
+  width: 2rem !important;
 }
 .svg-icon.svg-icon-2 svg {
   height: 1.5rem !important;

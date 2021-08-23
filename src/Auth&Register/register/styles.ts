@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {CheckpointAssets} from "../login/styles";
+
 
 export const RegisterSubTitle = styled.div`
   width: 100%;
@@ -16,15 +16,7 @@ export const RegisterLinkToLogin = styled.a`
   }
   `
 
-export const RegisterAssets = styled(CheckpointAssets)`
-  label{
-    align-items: flex-start;
-    
-    &:before{
-      margin-top: 3px;
-    }
-  }
-`
+
 
 export const RegisterAssetsLink = styled.a`
   color: #6A67CE !important;

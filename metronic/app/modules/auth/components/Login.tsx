@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import {Link} from 'react-router-dom'
+import Link from 'next/link'
 import {useFormik} from 'formik'
 import * as auth from '../redux/AuthRedux'
 import {login} from '../redux/AuthCRUD'
@@ -64,11 +64,13 @@ export function Login() {
     >
       {/* begin::Heading */}
       <div className='text-center mb-10'>
-        <h1 className='text-dark mb-3'>Sign In to Metronic</h1>
+        <h1 className='text-dark mb-3'>Sign In to App</h1>
         <div className='text-gray-400 fw-bold fs-4'>
           New Here?{' '}
-          <Link to='/auth/registration' className='link-primary fw-bolder'>
-            Create an Account
+          <Link href='/auth/registration' >
+            <a className='link-primary fw-bolder'>
+              Create an Account
+            </a>
           </Link>
         </div>
       </div>
@@ -120,12 +122,10 @@ export function Login() {
             <label className='form-label fw-bolder text-dark fs-6 mb-0'>Password</label>
             {/* end::Label */}
             {/* begin::Link */}
-            <Link
-              to='/auth/forgot-password'
-              className='link-primary fs-6 fw-bolder'
-              style={{marginLeft: '5px'}}
-            >
-              Forgot Password ?
+            <Link href='/auth/forgot-password' >
+              <a className='link-primary fs-6 fw-bolder' style={{marginLeft: '5px'}}>
+                Forgot Password ?
+              </a>
             </Link>
             {/* end::Link */}
           </div>

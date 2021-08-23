@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import {KTSVG, toAbsoluteUrl} from '../../../_metronic/helpers'
-import {Link} from 'react-router-dom'
+import Link from 'next/link'
 import {Dropdown1} from '../../../_metronic/partials'
 import {useLocation} from 'react-router-dom'
 
@@ -164,58 +164,47 @@ const ProfileHeader: React.FC = () => {
         <div className='d-flex overflow-auto h-55px'>
           <ul className='nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder flex-nowrap'>
             <li className='nav-item'>
-              <Link
-                className={
+              <Link href='/crafted/pages/profile/overview' >
+                <a  className={
                   `nav-link text-active-primary me-6 ` +
                   (location.pathname === '/crafted/pages/profile/overview' && 'active')
-                }
-                to='/crafted/pages/profile/overview'
-              >
+                }>
+
+                </a>
                 Overview
               </Link>
             </li>
             <li className='nav-item'>
-              <Link
-                className={
+              <Link href='/crafted/pages/profile/projects'>
+                <a className={
                   `nav-link text-active-primary me-6 ` +
                   (location.pathname === '/crafted/pages/profile/projects' && 'active')
-                }
-                to='/crafted/pages/profile/projects'
-              >
-                Projects
+                }>Projects</a>
               </Link>
             </li>
             <li className='nav-item'>
-              <Link
-                className={
+              <Link href='/crafted/pages/profile/campaigns'>
+                <a className={
                   `nav-link text-active-primary me-6 ` +
                   (location.pathname === '/crafted/pages/profile/campaigns' && 'active')
-                }
-                to='/crafted/pages/profile/campaigns'
-              >
+                }></a>
                 Campaigns
               </Link>
             </li>
             <li className='nav-item'>
-              <Link
-                className={
+              <Link href='/crafted/pages/profile/documents'>
+                <a  className={
                   `nav-link text-active-primary me-6 ` +
                   (location.pathname === '/crafted/pages/profile/documents' && 'active')
-                }
-                to='/crafted/pages/profile/documents'
-              >
-                Documents
+                }>Documents</a>
               </Link>
             </li>
             <li className='nav-item'>
-              <Link
-                className={
+              <Link href='/crafted/pages/profile/connections'>
+                <a className={
                   `nav-link text-active-primary me-6 ` +
                   (location.pathname === '/crafted/pages/profile/connections' && 'active')
-                }
-                to='/crafted/pages/profile/connections'
-              >
-                Connections
+                }>Connections</a>
               </Link>
             </li>
           </ul>

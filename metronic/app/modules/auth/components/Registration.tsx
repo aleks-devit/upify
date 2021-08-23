@@ -6,7 +6,7 @@ import * as Yup from 'yup'
 import clsx from 'clsx'
 import * as auth from '../redux/AuthRedux'
 import {register} from '../redux/AuthCRUD'
-import {Link} from 'react-router-dom'
+import Link from 'next/link'
 import {toAbsoluteUrl} from '../../../../_metronic/helpers'
 
 const initialValues = {
@@ -84,8 +84,10 @@ export function Registration() {
         {/* begin::Link */}
         <div className='text-gray-400 fw-bold fs-4'>
           Already have an account?
-          <Link to='/auth/login' className='link-primary fw-bolder' style={{marginLeft: '5px'}}>
-            Forgot Password ?
+          <Link href='/auth/login' >
+            <a className='link-primary fw-bolder' style={{marginLeft: '5px'}}>
+              Forgot Password ?
+            </a>
           </Link>
         </div>
         {/* end::Link */}
@@ -274,8 +276,10 @@ export function Registration() {
             htmlFor='kt_login_toc_agree'
           >
             I Agree the{' '}
-            <Link to='/auth/terms' className='ms-1 link-primary'>
-              terms and conditions
+            <Link href='/auth/terms' >
+              <a className='ms-1 link-primary'>
+                terms and conditions
+              </a>
             </Link>
             .
           </label>
@@ -306,14 +310,16 @@ export function Registration() {
             </span>
           )}
         </button>
-        <Link to='/auth/login'>
-          <button
-            type='button'
-            id='kt_login_signup_form_cancel_button'
-            className='btn btn-lg btn-light-primary w-100 mb-5'
-          >
-            Cancel
-          </button>
+        <Link href='/auth/login'>
+          <a>
+            <button
+              type='button'
+              id='kt_login_signup_form_cancel_button'
+              className='btn btn-lg btn-light-primary w-100 mb-5'
+            >
+              Cancel
+            </button>
+          </a>
         </Link>
       </div>
       {/* end::Form group */}

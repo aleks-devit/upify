@@ -2,6 +2,7 @@ import React, {useRef, useEffect} from 'react'
 import {useLocation} from 'react-router'
 import clsx from 'clsx'
 import {checkIsActive, KTSVG} from '../../../helpers'
+import {useRouter} from "next/router";
 
 type Props = {
   to: string
@@ -28,7 +29,7 @@ const MenuInnerWithSub: React.FC<Props> = ({
   isMega = false,
 }) => {
   const menuItemRef = useRef<HTMLDivElement>(null)
-  const {pathname} = useLocation()
+  const {pathname} = useRouter()
 
   useEffect(() => {
     if (menuItemRef.current && menuTrigger && menuPlacement) {

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {FC} from 'react'
-import {Link} from 'react-router-dom'
+import Link from 'next/link'
 import {KTSVG, toAbsoluteUrl} from '../../../helpers'
 
 const QuickLinks: FC = () => (
@@ -70,8 +70,10 @@ const QuickLinks: FC = () => (
     </div>
 
     <div className='py-2 text-center border-top'>
-      <Link to='/crafted/pages/profile' className='btn btn-color-gray-600 btn-active-color-primary'>
-        View All <KTSVG path='/media/icons/duotone/Navigation/Right-2.svg' className='svg-icon-5' />
+      <Link href='/crafted/pages/profile'>
+        <a className='btn btn-color-gray-600 btn-active-color-primary'>
+          View All <KTSVG path='/media/icons/duotone/Navigation/Right-2.svg' className='svg-icon-5' />
+        </a>
       </Link>
     </div>
   </div>

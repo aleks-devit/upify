@@ -1,78 +1,69 @@
-import type {NextPage} from "next";
-import Head from 'next/head'
-import Link from 'next/link'
-import {
-  CheckpointAssets,
-  CheckpointBody, CheckpointBtn,
-  CheckpointToMainPage,
-  CheckpointForm,
-  CheckpointHeader,
-  CheckpointInput,
-  CheckpointRemember, CheckpointToRegister,
-  CheckpointWrapper,
-  CheckpointLinkRegister,
-} from "./styles";
-import React from "react";
-import Alert from "../../Alert";
+import React, {FC} from 'react'
+import {useForm} from 'react-hook-form'
+import Action from "./items/Action";
+import Heading from "./items/Heading";
+import clsx from "clsx";
+import ForgotPassword from "./items/ForgotPassword";
+import {email, password} from "../ListErrors";
+import {setStatusInput} from "../../helpers/setStatusInput";
 
-interface SignInInterface{
-  changeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  changePassword: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-  alert: string;
-  setAlert: (item: string) => void
+interface IFormInputs {
+  email: string
+  password: string
 }
 
-const SignIn: NextPage<SignInInterface> = ({changeEmail, changePassword, onSubmit, alert, setAlert}) => {
-  return(
-    <>
-      <Head>
-        <title>Login - Upify Analytics</title>
-        <meta name="description" content="Login - Upify Analytics" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <CheckpointWrapper>
-        <CheckpointBody>
-          <CheckpointHeader>
-            <Link href='/'>
-              <CheckpointToMainPage>
-                Upify Analytics
-              </CheckpointToMainPage>
-            </Link>
-          </CheckpointHeader>
-          <CheckpointForm onSubmit={onSubmit}>
-            <Alert text={alert} setAlert={setAlert}/>
-            <CheckpointInput onChange={(e) => changeEmail(e)} required  placeholder='Email Address'/>
-            <CheckpointInput onChange={(e) => changePassword(e)} required  placeholder='Password' type='password'/>
-            <CheckpointAssets>
-              <CheckpointRemember>
-                <div className="checkbox">
-                  <input className="custom-checkbox" type="checkbox" id="color-5" name="color-5" value="green"/>
-                    <label htmlFor="color-5">Remember me</label>
-                </div>
-              </CheckpointRemember>
-              <div>
-                <Link href="/lost-password">
-                  <a>Lost Password </a>
-                </Link>
-                /
-                <Link href="/resend-activation">
-                  <a> Resend Activation</a>
-                </Link>
-              </div>
-            </CheckpointAssets>
-            <CheckpointBtn type='submit'>Login</CheckpointBtn>
-          </CheckpointForm>
-          <CheckpointToRegister>
-            Don't have an account?
-            <Link href="/register">
-              <CheckpointLinkRegister>Register</CheckpointLinkRegister>
-            </Link>
-          </CheckpointToRegister>
-        </CheckpointBody>
-      </CheckpointWrapper>
-    </>
+interface LoginInterface {
+  loading: boolean
+  onSubmit: any
+}
+
+const Login: FC<LoginInterface> = ({onSubmit, loading}) => {
+  const { handleSubmit, register, errors } = useForm<IFormInputs>({ });
+
+  return (
+    <form
+      className='form w-100'
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+      id='kt_login_signin_form'
+    >
+      <Heading/>
+      {/* begin::Form group */}
+      <div className='fv-row mb-10'>
+        <label className='form-label fs-6 fw-bolder text-dark'>Email</label>
+        <input
+          ref={register({ ...email })}
+          placeholder='Email'
+          className={clsx(
+            'form-control form-control-lg form-control-solid', setStatusInput(errors.email))}
+          type='text'
+          name='email'
+          id='email'
+        />
+        {<p className='text-danger mt-2'>{errors?.email?.message }</p>}
+      </div>
+      {/* end::Form group */}
+
+      {/* begin::Form group */}
+      <div className='fv-row mb-10'>
+        <ForgotPassword/>
+        <input
+          ref={register( {...password })}
+          type='password'
+          name='password'
+          placeholder="Password"
+          autoComplete="on"
+          id='password'
+          required
+          className={clsx(
+            'form-control form-control-lg form-control-solid', setStatusInput(errors.password) )}
+        />
+        {<p className='text-danger mt-2'>{errors?.password?.message }</p>}
+      </div>
+      {/* end::Form group */}
+      <Action loading={loading}/>
+    </form>
   )
 }
 
-export default SignIn
+export default Login

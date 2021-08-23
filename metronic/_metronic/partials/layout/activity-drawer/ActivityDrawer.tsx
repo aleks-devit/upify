@@ -1,5 +1,5 @@
 import React, {FC} from 'react'
-import {Link} from 'react-router-dom'
+import Link from 'next/link'
 import {KTSVG} from '../../../helpers'
 import {Item1} from '../../content/activity/Item1'
 import {Item2} from '../../content/activity/Item2'
@@ -60,12 +60,14 @@ const ActivityDrawer: FC = () => (
         </div>
       </div>
       <div className='card-footer py-5 text-center' id='kt_activities_footer'>
-        <Link to='/crafted/pages/profile' className='btn btn-bg-white text-primary'>
-          View All Activities
-          <KTSVG
-            path='/media/icons/duotone/Navigation/Right-2.svg'
-            className='svg-icon-3 svg-icon-primary'
-          />
+        <Link href='/crafted/pages/profile' >
+          <a className='btn btn-bg-white text-primary'>
+            View All Activities
+            <KTSVG
+              path='/media/icons/duotone/Navigation/Right-2.svg'
+              className='svg-icon-3 svg-icon-primary'
+            />
+          </a>
         </Link>
       </div>
     </div>
